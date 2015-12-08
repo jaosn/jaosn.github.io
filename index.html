@@ -126,12 +126,6 @@ void main() {
     scene = new Physijs.Scene;
 
     //===========skybox========================
-    var rocksImage = THREE.ImageUtils
-            .loadTexture('factorylargerocksplain.jpg');
-    rocksImage.magFilter = THREE.NearestFilter;
-    rocksImage.minFilter = THREE.LinearMipMapLinearFilter;
-    rocksImage.wrapS = rocksImage.wrapT = THREE.RepeatWrapping;
-
     var roomImage = THREE.ImageUtils
             .loadTexture('An-Pucan-Pub-Back-Bar-Galway-Panorama.jpg');
     roomImage.magFilter = THREE.NearestFilter;
@@ -245,7 +239,7 @@ void main() {
           if (ballArray.indexOf(whiteBall) > -1){
             if (ballArray.length <= 1){
               gameOver = true;
-              alert ("Congratulation, after " + hitCount +" hits, you win!");
+              alert ("Congratulation, after " + hitCount + " hits, you win!");
             }
           }else{
             gameOver = true;
