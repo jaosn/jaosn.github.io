@@ -236,7 +236,7 @@ void main() {
         var bz = ballArray[i].position.z;
         var hx = holeArray[j].position.x;
         var hz = holeArray[j].position.z;
-        if (Math.pow((bx-hx)*(bx-hx)+(bz-hz)*(bz-hz),0.5)< holeRad){
+        if (Math.pow((bx-hx)*(bx-hx)+(bz-hz)*(bz-hz),0.5)< holeRad || ballArray[i].position.y<=0){
           scene.remove(ballArray[i]);
           var index = ballArray.indexOf(ballArray[i]);
           ballArray.splice(index, 1);
@@ -250,6 +250,7 @@ void main() {
             alert ("Sorry you failded, " + ballArray.length + " balls left");
           }
         }
+
       }
     }
   }
