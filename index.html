@@ -85,6 +85,7 @@ void main() {
   var holePosition = [[-holeX,holeZ],[-holeX-2,0],[-holeX,-holeZ],[holeX,holeZ],[holeX+2,0],[holeX,-holeZ]];
 
   var holeRad = 3;
+  var hitCount = 0;
 
   var hitForce = 300;
   var linear_amount = .5;
@@ -201,6 +202,7 @@ void main() {
       this.hit = function(){
         forceDirection = new THREE.Vector3(-controls.power*Math.sin(controls.angle/180.0*Math.PI),0,controls.power*Math.cos(controls.angle/180.0*Math.PI));
         whiteBall.setLinearVelocity(forceDirection);
+        hitCount ++;
       }
 
       this.seeDirection = function(){
@@ -243,11 +245,11 @@ void main() {
           if (ballArray.indexOf(whiteBall) > -1){
             if (ballArray.length <= 1){
               gameOver = true;
-              alert ("Congratulation, you win!");
+              alert ("Congratulation, after " + hitCount +" hits, you win!");
             }
           }else{
             gameOver = true;
-            alert ("Sorry you failded, " + ballArray.length + " balls left");
+            alert ("Sorry you failded, after "+ hitCount + " hits, " + ballArray.length + " balls left");
           }
         }
 
