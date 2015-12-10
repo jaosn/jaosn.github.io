@@ -72,7 +72,7 @@ void main() {
 
         var initScene, render, ground_material,
                 renderer, render_stats, scene, whiteX, whiteZ, whiteBall, forceDirection,
-                ground, light, redLight, movingBall, camera, uniforms;
+                ground, light, redLight, movingBall, chromeMaterial, camera, uniforms;
         var cubeCamera;
 
         var rad = 2;
@@ -105,6 +105,7 @@ void main() {
         var holeArray = [];
         var arrowArray = [];
         var gameOver = false;
+        var movingCount = 0;
 
 
         initScene = function () {
@@ -153,7 +154,7 @@ void main() {
             skybox.scale.x = -1; // this is where we turn it inside out..
             scene.add(skybox);
             //===========skybox end======================
-            cubeCamera = new THREE.CubeCamera(1, 1000000, 128);
+            cubeCamera = new THREE.CubeCamera(0.5, 1000000, 128);
             scene.add(cubeCamera);
 
             scene.setGravity(new THREE.Vector3(0, gravity, 0));
@@ -245,6 +246,13 @@ void main() {
         };
 
         function checkRemove() {
+            if (Math.sin(Math.sin(Math.PI * (movingCount/180))) >= 0){
+              movingCount += 2;
+              movingBall.position.z += 0.5;
+            }else{
+              movingCount += 2;
+              movingBall.position.z -= 0.5;
+            }
             for (var i = 0; i < ballArray.length; i++) {
                 for (var j = 0; j < holeArray.length; j++) {
                     var bx = ballArray[i].position.x;
@@ -285,9 +293,9 @@ void main() {
         };
 
         function createMovingObject(){
-          var chromeMaterial = new THREE.MeshLambertMaterial({color: 0xffffff, envMap: cubeCamera.renderTarget});
+          chromeMaterial = new THREE.MeshLambertMaterial({color: 0xffffff, envMap: cubeCamera.renderTarget});
           movingBall = new THREE.Mesh( new THREE.SphereGeometry(10,32,32), chromeMaterial );
-          movingBall.position.set(50,20,20);
+          movingBall.position.set(-50,20,-10);
           scene.add( movingBall );
         }
 
@@ -313,7 +321,7 @@ void main() {
         }
 
         function getMaterial() {
-            var chromeMaterial = new THREE.MeshLambertMaterial({color: 0xffffff, envMap: cubeCamera.renderTarget});
+            chromeMaterial = new THREE.MeshLambertMaterial({color: 0xffffff, envMap: cubeCamera.renderTarget});
             return Physijs.createMaterial(chromeMaterial, friction, restitutionBall);
         }
 
