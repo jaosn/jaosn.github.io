@@ -72,7 +72,7 @@ void main() {
 
         var initScene, render, ground_material,
                 renderer, render_stats, scene, whiteX, whiteZ, whiteBall, forceDirection,
-                ground, light, redLight, camera, uniforms;
+                ground, light, redLight, movingBall, camera, uniforms;
         var cubeCamera;
 
         var rad = 2;
@@ -105,6 +105,7 @@ void main() {
         var holeArray = [];
         var arrowArray = [];
         var gameOver = false;
+        var movingCount = 0;
 
 
         initScene = function () {
@@ -182,7 +183,7 @@ void main() {
 
                 ballArray.push(ball);
             }
-            movingObject();
+            createMovingObject();
 
             // create the white ball
             whiteBall = createWhiteBall(0, -50);
@@ -269,6 +270,14 @@ void main() {
             }
         }
 
+        function movingObjectAnimation(){
+          if (movingCount != 20){
+            movingCount ++;
+            movingBall.position.y += 2;
+          }
+
+        }
+
         render = function () {
             //model.update();
             requestAnimationFrame(render);
@@ -284,9 +293,9 @@ void main() {
             scene.simulate(undefined, 1);
         };
 
-        function movingObject(){
+        function createMovingObject(){
           var chromeMaterial = new THREE.MeshLambertMaterial({color: 0xffffff, envMap: cubeCamera.renderTarget});
-          var movingBall = new THREE.Mesh( new THREE.SphereGeometry(10,32,32), chromeMaterial );
+          movingBall = new THREE.Mesh( new THREE.SphereGeometry(10,32,32), chromeMaterial );
           movingBall.position.set(50,20,20);
           scene.add( movingBall );
         }
