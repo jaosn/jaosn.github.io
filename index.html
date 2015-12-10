@@ -105,7 +105,6 @@ void main() {
         var holeArray = [];
         var arrowArray = [];
         var gameOver = false;
-        var movingCount = 0;
 
 
         initScene = function () {
@@ -268,14 +267,6 @@ void main() {
                     }
                 }
             }
-        }
-
-        function movingObjectAnimation(){
-          if (movingCount != 20){
-            movingCount ++;
-            movingBall.position.y += 2;
-          }
-
         }
 
         render = function () {
