@@ -1,0 +1,391 @@
+@font-face {
+  font-family: AppFont;
+  src: url('../fonts/roboto/Roboto-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: AppFontB;
+  font-weight: bold;
+  src: url('../fonts/roboto/Roboto-Bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: AppFontI;
+  font-style: italic;
+  src: url('../fonts/roboto/Roboto-Italic.ttf') format('truetype');
+}
+@font-face {
+  font-family: AppFontL;
+  font-style: italic;
+  src: url('../fonts/roboto/Roboto-Light.ttf') format('truetype');
+}
+@font-face {
+  font-family: AppFontT;
+  font-style: italic;
+  src: url('../fonts/roboto/Roboto-Thin.ttf') format('truetype');
+}
+@font-face {
+  font-family: AppFontBI;
+  font-style: italic;
+  font-weight: bold;
+  src: url('../fonts/roboto/RobotoCondensed-BoldItalic.ttf') format('truetype');
+}
+
+/*-webkit-transition: 0.5s opacity ease;
+-moz-transition: 0.5s opacity ease;
+transition: 0.5s opacity ease;*/
+
+#body {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  font-family: AppFont;
+  font-size: 1rem;
+  color:white;
+  visibility: hidden;
+}
+
+.sidebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height:100%;
+  width: 15rem;
+  background-color:#5A91BE;
+}
+.page {
+  position: absolute;
+  top: 0;
+  left: 15rem;
+  height: 100%;
+  width: calc(100% - 15rem);
+  background-color:#c0d0d8;
+}
+
+.sidebar .top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10rem;
+  opacity: 0;
+  -webkit-transition: 0.5s opacity 0.5s ease, 0.5s transform 0.5s ease;
+  -moz-transition: 0.5s opacity 0.5s ease, 0.5s transform 0.5s ease;
+  transition: 0.5s opacity 0.5s ease, 0.5s transform 0.5s ease;
+  -webkit-transform: translateX(-100%);
+  -moz-transform: translateX(-100%);
+  transform: translateX(-100%);
+}
+
+#body.active .sidebar .top {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.sidebar .line {
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  width: 80%;
+  border-bottom: 1.5px solid white;
+}
+
+.sidebar .top .icon {
+  position: absolute;;
+  top: 1rem;
+  left: calc(50% - 2.5rem);
+  width: 5rem;
+  height: 6.5rem;
+  background-image: url(../img/han.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.sidebar .top .text {
+  position: absolute;
+  top: 8rem;
+  left: 0;
+  width: 100%;
+  height: 2rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.sidebar .bot {
+  position: absolute;
+  top: 10rem;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 10rem);
+}
+
+.sidebar .bot .button {
+  position: absolute;
+  left: 2rem;
+  width: calc(100% - 5rem);
+  height: 2rem;
+  border-bottom: 1.5px solid white;
+  text-transform: uppercase;
+  padding: 0.5rem;
+  display: flex;
+  /*flex-direction: column;*/
+  text-align: left;
+  /*justify-content: center;*/
+  align-items: center;
+}
+
+.button[data-button="intro"] {
+  top: 0;
+}
+.button[data-button="education"] {
+  top: 3rem;
+}
+.button[data-button="experience"] {
+  top: 6rem;
+}
+.button[data-button="projects"] {
+  top: 9rem;
+}
+
+.button[data-button="intro"] .arrows,
+.button[data-button="education"] .arrows,
+.button[data-button="experience"] .arrows {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  background: rgba(90, 145, 190, 0.2);
+  margin-top: 0.5rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.arrows .arrow {
+  position: absolute;
+  top: 25%;
+  height: 50%;
+  width: 50%;
+  opacity: 0.5;
+  background-image: url(../img/arrow_right.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.arrow.arrow1 {
+  left: 0%;
+  animation: shiny1 3s ease-in-out infinite;
+}
+.arrow.arrow2 {
+  left: 25%;
+  animation: shiny2 3s ease-in-out infinite;
+}
+.arrow.arrow3 {
+  left: 50%;
+  animation: shiny3 3s ease-in-out infinite;
+}
+
+.menu_plus_container {
+    position: absolute;
+    top: 0;
+    left: : 0;
+    width: 2rem;
+    height: 2rem;
+    margin-top: 0.5rem;
+    cursor: pointer;
+    display: -webkit-flex;
+    -webkit-flex-direction: column;
+    -webkit-justify-content: center;
+    -webkit-align-items: center;
+    display: -moz-flex;
+    -moz-flex-direction: column;
+    -moz-justify-content: center;
+    -moz-align-items: center;
+    display: -ms-flex;
+    -ms-flex-direction: column;
+    -ms-justify-content: center;
+    -ms-align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu_plus {
+    position: relative;
+    width: 1rem;
+    height: 1rem;
+    -webkit-transition: 0.5s -webkit-transform ease;
+    -moz-transition: 0.5s -moz-transform ease;
+    transition: 0.5s transform ease;
+}
+.plus {
+    position: absolute;
+    top: 0.45rem;
+    height: 0.1rem;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    -webkit-transition: 0.5s opacity ease;
+    -moz-transition: 0.5s opacity ease;
+    transition: 0.5s opacity ease;
+    opacity: 1;
+}
+
+.minus {
+    position: absolute;
+    left: 0.45rem;
+    width: 0.1rem;
+    top: 0;
+    height: 100%;
+    background-color: white;
+}
+
+.button[data-button="projects"] .text {
+  position: absolute;
+  left: 2.5rem;
+  top: 0;
+  width: calc(100% - 2.5rem);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /*align-items: center;*/
+}
+
+@-webkit-keyframes shiny1 {
+  0% {
+    opacity: 0.5;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    transform: scale(1);
+  }
+  33% {
+    opacity: 1;
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+  66% {
+    opacity: 0.5;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes shiny2 {
+  33% {
+    opacity: 0.5;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    transform: scale(1);
+  }
+  66% {
+    opacity: 1;
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0.5;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes shiny3 {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+  33% {
+    opacity: 0.5;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    transform: scale(1);
+  }
+  66% {
+    opacity: 0.5;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+}
+
+@keyframes shiny1 {
+  0% {
+    opacity: 0.5;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    transform: scale(1);
+  }
+  33% {
+    opacity: 1;
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+  66% {
+    opacity: 0.5;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@keyframes shiny2 {
+  33% {
+    opacity: 0.5;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    transform: scale(1);
+  }
+  66% {
+    opacity: 1;
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0.5;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@keyframes shiny3 {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+  33% {
+    opacity: 0.5;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    transform: scale(1);
+  }
+  66% {
+    opacity: 0.5;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+}

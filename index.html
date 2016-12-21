@@ -4,13 +4,73 @@
 
 <head>
   <title>Zhenyu Han's Profolio</title>
-  <script type="text/javascript" src="./js/app.js"></script>
-  <script type="text/javascript" src="./css/app.css"></script>
+  <link type="text/css" rel="stylesheet" href="css/app.css" />
+  <script src="js/app.js" charset="utf-8"></script>
+  <script src="js/jquery-3.1.1.min.js" charset="utf-8"></script>
 </head>
 
 <body>
-  <div>sample</div>
+  <div id="body">
+    <div class="sidebar">
+      <div class="top">
+        <div class="icon"></div><div class="text">Zhenyu(Jason) Han</div><div class="line"></div>
+      </div>
+      <div class="bot">
+        <div class="button" data-button="intro">intro
+          <div class="arrows">
+            <div class="arrow arrow1"></div>
+            <div class="arrow arrow2"></div>
+            <div class="arrow arrow3"></div>
+          </div>
+        </div>
+        <div class="button" data-button="education">education
+          <div class="arrows">
+            <div class="arrow arrow1"></div>
+            <div class="arrow arrow2"></div>
+            <div class="arrow arrow3"></div>
+          </div>
+        </div>
+        <div class="button" data-button="experience">experience
+          <div class="arrows">
+            <div class="arrow arrow1"></div>
+            <div class="arrow arrow2"></div>
+            <div class="arrow arrow3"></div>
+          </div>
+        </div>
+        <div class="button" data-button="projects">
+          <div class="menu_plus_container">
+            <div class="menu_plus">
+              <div class="plus"></div>
+              <div class="minus"></div>
+            </div>
+          </div>
+          <div class="text">projects</div>
+          <div class="box">
+            <div class="accordions" data-step="1"></div>
+            <div class="accordions" data-step="2"></div>
+            <div class="accordions" data-step="3"></div>
+            <div class="accordions" data-step="4"></div>
+            <div class="accordions" data-step="5"></div>
+            <div class="accordions" data-step="6"></div>
+            <div class="accordions" data-step="7"></div>
+          </div>
+        </div>
 
+      </div>
+    </div>
+    <div class="page" data-page="intro"></div>
+    <div class="page" data-page="education"></div>
+    <div class="page" data-page="experience"></div>
+    <div class="page" data-page="projects">
+      <div class="step" data-step="1"></div>
+      <div class="step" data-step="2"></div>
+      <div class="step" data-step="3"></div>
+      <div class="step" data-step="4"></div>
+      <div class="step" data-step="5"></div>
+      <div class="step" data-step="6"></div>
+      <div class="step" data-step="7"></div>
+    </div>
+  </div>
 </body>
 
 </html>
