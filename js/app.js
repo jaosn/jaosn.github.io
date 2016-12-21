@@ -25,6 +25,14 @@ function main(){
       fontsizeResize();
     }, 10);
   });
+  $("[data-project]").on("touchend",function(){
+    console.log("clicked");
+    $(this).parent().addClass("active");
+  });
+  $("[data-button]:not([data-button='projects'])").on("touchend",function(){
+    var btn = $(this).data("button")
+    console.log(btn);
+  });
 }
 
 window.onload = init;
