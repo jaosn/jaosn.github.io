@@ -37,6 +37,7 @@ function main(){
 
 window.onload = init;
 function init(){
-  main();
-
+  $(document).ready(function () {
+    main();
+  });
 }
