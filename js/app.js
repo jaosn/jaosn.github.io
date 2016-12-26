@@ -1,7 +1,10 @@
 function main(){
   setTimeout(function(){
-    $("#body").css("visibility","visible");
-    $("#body").addClass("active");
+    $("#body").css({
+      "visibility":"visible",
+      "overflow":"hidden"
+    });
+    $("#body .sidebar").addClass("active");
   },500)
   loadText();
   fontsizeResize();
@@ -33,6 +36,19 @@ function main(){
     console.log(step);
     navigate("projects",step);
   });
+
+  $("[data-link='email']").on("click",function(){
+    var link = $(this).data("link");
+    if (link == "email") {
+      sendEmail();
+    }
+  });
+
+  $("[data-link='email']").on("mouseenter",function(){
+    $(this).addClass("active");
+  }).on("mouseleave",function(){
+    $(this).removeClass("active");
+  })
 }
 
 window.onload = init;
@@ -67,6 +83,29 @@ function loadText(){
 }
 
 function navigate(page,step){
-  $("#body").data("page",page);
-  $("#body").data("step",step);
+  $("#body").attr("data-page",page);
+  $("#body").attr("data-step",step);
+}
+
+
+function checkDevice(){
+  var is_chrome = navigator.userAgent.indexOf('Chrome') > -1;
+  var is_ie = navigator.userAgent.indexOf('MSIE') > -1;
+  var is_firefox = navigator.userAgent.indexOf('Firefox') > -1;
+  var is_safari = navigator.userAgent.indexOf("Safari") > -1;
+  var is_windows = navigator.userAgent.indexOf("Windows") !== -1;
+  var is_mac = navigator.userAgent.indexOf("Mac") !== -1;
+  var is_ipad = navigator.userAgent.indexOf("iPad") !== -1;
+  var css;
+  // if (is_windows) {
+  //   css = ".quotations .doublequote {top:0;}"
+  //   $("head").append("<style class='windows'>"+css+"</style>");
+  // }
+
+}
+
+function sendEmail(){
+  var sub = "Zhenyu's homepage";
+  var body = "I saw your profile from your homepage, would linke to talk to you ..";
+  window.location.href = "mailto:hanzhenyugg@gmail.com?subject="+encodeURIComponent(sub)+"&body="+encodeURIComponent(body);
 }

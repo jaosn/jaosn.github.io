@@ -8,30 +8,34 @@
   <script src="js/app.js" charset="utf-8"></script>
   <script src="js/text.js" charset="utf-8"></script>
   <script src="js/jquery-3.1.1.min.js" charset="utf-8"></script>
+  <link rel="icon" type="image/png" href="img/han_head.png">
 </head>
 
 <body>
-  <div id="body">
+  <div id="body" data-page="intro" data-step>
     <div class="sidebar">
       <div class="top">
-        <div class="icon"></div><div class="text">Zhenyu(Jason) Han</div><div class="line"></div>
+        <div class="icon"></div><div class="text" data-text="zhenyu_intro_name"></div><div class="line"></div>
       </div>
       <div class="bot">
-        <div class="button" data-button="intro">intro
+        <div class="button" data-button="intro">
+          <div class="text" data-text="zhenyu_intro_title"></div>
           <div class="arrows">
             <div class="arrow arrow1"></div>
             <div class="arrow arrow2"></div>
             <div class="arrow arrow3"></div>
           </div>
         </div>
-        <div class="button" data-button="education">education
+        <div class="button" data-button="education">
+          <div class="text" data-text="zhenyu_education_title"></div>
           <div class="arrows">
             <div class="arrow arrow1"></div>
             <div class="arrow arrow2"></div>
             <div class="arrow arrow3"></div>
           </div>
         </div>
-        <div class="button" data-button="experience">experience
+        <div class="button" data-button="experience">
+          <div class="text" data-text="zhenyu_experience_title"></div>
           <div class="arrows">
             <div class="arrow arrow1"></div>
             <div class="arrow arrow2"></div>
@@ -45,7 +49,7 @@
               <div class="minus"></div>
             </div>
           </div>
-          <div class="text">projects</div>
+          <div class="text" data-text="zhenyu_experience_title"></div>
           <div class="box">
             <div class="accordions" data-step="1" data-text="zhenyu_porojects_1"></div>
             <div class="accordions" data-step="2" data-text="zhenyu_porojects_2"></div>
@@ -63,7 +67,42 @@
 
       </div>
     </div>
-    <div class="page" data-page="intro"></div>
+    <div class="page" data-page="intro">
+      <!-- <div class="" data-text=""></div> -->
+      <!-- <div class="bg"></div> -->
+      <div class="column">
+        <div class="name" data-text="zhenyu_intro_animation_name"></div>
+        <div class="photos">
+          <!-- <div class="left_arrow"></div> -->
+          <div class="photo" data-photo="1"></div>
+          <div class="photo" data-photo="2"></div>
+          <div class="photo" data-photo="3"></div>
+          <!-- <div class="photo" data-photo="4"></div>
+          <div class="photo" data-photo="5"></div> -->
+          <!-- <div class="right_arrow"></div> -->
+        </div>
+      </div>
+      <div class="column">
+        <div class="address" data-text="zhenyu_intro_animation_address"></div>
+        <div class="map" data-link="map">
+          <iframe class="home_map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2948.1363725127276!2d-71.23912968481699!3d42.360932879186876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e382e1a9703b81%3A0x7f4399adde51623!2s48+Derby+St%2C+Waltham%2C+MA+02453!5e0!3m2!1sen!2sus!4v1482785971231" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="column small">
+        <div class="email" data-text="zhenyu_intro_animation_email"></div>
+        <div class="phone" data-text="zhenyu_intro_aniamtion_phone"></div>
+        <div class="email_icon" data-link="email"></div>
+        <div class="phone_icon" data-link="phone"></div>
+      </div>
+      <div class="column">
+        <div class="description" data-text="zhenyu_intro_aniamtion_job_description"></div>
+        <div class="job jb1" data-text="zhenyu_intro_job_1"><div class="icon"></div></div>
+        <div class="job jb2" data-text="zhenyu_intro_job_2"><div class="icon"></div></div>
+        <div class="job jb3" data-text="zhenyu_intro_job_3"><div class="icon"></div></div>
+        <div class="info" data-text="zhenyu_intro_job_info"><div class="icon everify"></div><div class="icon visa"></div></div>
+        <div class="conclusion" data-text="zhenyu_intro_job_conclusion"></div>
+      </div>
+    </div>
     <div class="page" data-page="education"></div>
     <div class="page" data-page="experience"></div>
     <div class="page" data-page="projects">
