@@ -5,6 +5,7 @@ function main(){
       "overflow":"hidden"
     });
     $("#body .sidebar").addClass("active");
+    animateColumn("intro");
   },500)
   loadText();
   fontsizeResize();
@@ -116,6 +117,8 @@ function navigate(page,step){
   }
   $("#body").attr("data-page",page);
   $("#body").attr("data-step",step);
+  $(".column").removeClass("active");
+  animateColumn(page);
 }
 
 var pages = ["intro","education","experience","projects"];
@@ -152,11 +155,23 @@ function openMenu() {
   $(".sidebar").removeClass("close");
   $(".sidebutton").removeClass("show");
   $(".page").removeClass("full");
-  autoClose();
 }
 
 function autoClose(){
   countTime = setTimeout(function(){
     closeMenu();
-  },4000);
+  },5000);
+  return false;
+}
+
+function animateColumn(page) {
+  var count = 1;
+  var temp = [];
+  $(".page[data-page='"+page+"'] .column").each(function(){
+    temp.push($(this));
+    setTimeout(function(){
+      temp[count-1].addClass("active");
+      count += 1;
+    }, 250*count);
+  })
 }
