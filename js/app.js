@@ -77,16 +77,24 @@ function fontsizeResize() {
 function loadText(){
   $("[data-text]").each(function(){
     var key = $(this).data("text");
-    $(this).append("<span class='en_txt'>"+text[$(this).data("text")]+"<span>")
+    $(this).append("<span class='en_txt'>"+text[$(this).data("text")]+"</span>")
     console.log();
   });
 }
 
 function navigate(page,step){
+  var pre = $("#body").attr("data-page");
+  if (pre != page) {
+    $("#body").attr("data-pre",pre);
+    // var curIndex = pages.indexOf(page);
+    // var curIndex = pages.indexOf(page);
+
+  }
   $("#body").attr("data-page",page);
   $("#body").attr("data-step",step);
 }
 
+var pages = ["intro","education","experience","projects"];
 
 function checkDevice(){
   var is_chrome = navigator.userAgent.indexOf('Chrome') > -1;

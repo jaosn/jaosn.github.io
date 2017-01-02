@@ -30,6 +30,13 @@
   src: url('../fonts/roboto/RobotoCondensed-BoldItalic.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: AppFontLI;
+  /*font-style: italic;*/
+  /*font-weight: bold;*/
+  src: url('../fonts/roboto/Roboto-LightItalic.ttf') format('truetype');
+}
+
 /*-webkit-transition: 0.5s opacity ease;
 -moz-transition: 0.5s opacity ease;
 transition: 0.5s opacity ease;*/
@@ -55,6 +62,7 @@ transition: 0.5s opacity ease;*/
   width: 15rem;
   background-color:#5A91BE;
   border-radius: 1rem;
+  z-index: 1;
 }
 
 .page {
@@ -67,26 +75,55 @@ transition: 0.5s opacity ease;*/
   -webkit-transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
   -moz-transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
   transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-  -webkit-transform: translateX(50%);
-  -moz-transform: translateX(50%);
-  transform: translateX(50%);
-  overflow-y: scroll;
+  -webkit-transform: translateX(100%);
+  -moz-transform: translateX(100%);
+  transform: translateX(100%);
+  overflow-y: auto;
   overflow-x: hidden;;
   background-color:#c0d0d8;
-}
+  z-index: 0;
 
-.page[data-page="intro"] {
-  background-image: url(../img/bg_black_keyboard.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+
+.page[data-page="intro"] {
+  background-image: url(../img/bg_keyboard.jpg);
+  /*background-image: url(../img/bg_black_keyboard.jpg);*/
+  /*opacity: 0.6;*/
+  /*color:#84BE29;*/
+}
+
+.page[data-page="education"] {
+  background-image: url(../img/bg_desk.jpg);
+}
+
+.page[data-page="experience"] {
+  background-image: url(../img/bg_office.jpg);
+}
+
+.page[data-page="projects"] {
+  background-image: url(../img/bg_office2.jpg);
+}
+
 #body[data-page="intro"] .page:not([data-page="intro"]),
 #body[data-page="education"] .page:not([data-page="education"]),
 #body[data-page="experience"] .page:not([data-page="experience"]),
 #body[data-page="projects"] .page:not([data-page="projects"]) {
   /*display: none;*/
   pointer-events: none;
+}
+
+.readmore {
+  font-family: AppFontLI;
+  cursor: pointer;
+}
+
+.readmore:hover {
+  font-family: AppFontBI;
+  text-decoration: underline;
 }
 
 .sidebar .top {
@@ -356,7 +393,7 @@ transition: 0.5s opacity ease;*/
   width: calc(100% - 3.5rem);
   margin: 0.5rem;
   max-height: 0;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
   transition: max-height 0.5s ease-in-out;
 }
@@ -423,7 +460,7 @@ transition: 0.5s opacity ease;*/
 }
 
 
-.page[data-page="intro"] .column{
+.column {
   display: block;
   padding: 0.5rem 0.5rem 0 0.5rem;
   left: 0;
@@ -512,7 +549,7 @@ transition: 0.5s opacity ease;*/
   width: calc(60% - 2rem);
   z-index: 0;
   margin:1rem;
-  background: red;
+  /*background: red;*/
 }
 
 .map iframe.home_map {
@@ -526,6 +563,7 @@ transition: 0.5s opacity ease;*/
 
 .page[data-page="intro"] .column.small {
   height: 10rem;
+  margin-bottom: 4rem;
 }
 
 .column .email {
@@ -597,7 +635,9 @@ transition: 0.5s opacity ease;*/
   align-items: center;
 }
 
-
+.column.job {
+  height: 34rem;
+}
 
 .column .description {
   position: absolute;
@@ -657,7 +697,7 @@ transition: 0.5s opacity ease;*/
   top:  16rem;
   left : 0;
   margin: 0.5rem 0.5rem 0 3.5rem;
-  width: calc(50% - 4rem);
+  width: calc(100% - 4rem);
   height: 5rem;
   display: flex;
   align-items: center;
@@ -665,8 +705,8 @@ transition: 0.5s opacity ease;*/
 
 .info .everify{
   position: absolute;
-  left: 110%;
-  top: 0;
+  right: calc(50% + 2.5rem);
+  top: calc(100% + 1rem);
   margin: 0.5rem 0.5rem 0 0.5rem;
   width: 10rem;
   height: 5rem;
@@ -678,8 +718,8 @@ transition: 0.5s opacity ease;*/
 
 .info .visa{
   position: absolute;
-  left: 110%;
-  top: 100%;
+  left: calc(50% - 1.5rem);
+  top: calc(100% + 1rem);
   margin: 0.5rem 0.5rem 0 0.5rem;
   width: 10rem;
   height: 5rem;
@@ -699,6 +739,150 @@ transition: 0.5s opacity ease;*/
   display: flex;
   align-items: center;
 }
+
+.page[data-page="education"] .column,
+.page[data-page="experience"] .column {
+  margin: 0.5rem 0.5rem 0 3.5rem;
+  width: calc(100% - 5rem);
+}
+
+.page[data-page="education"] .column .bachelor,
+.page[data-page="education"] .column .master {
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height:6rem;
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+
+.page[data-page="education"] .column .nuist,
+.page[data-page="education"] .column .uncp,
+.page[data-page="education"] .column .brandeis,
+.page[data-page="experience"] .column .kaon {
+  display: block;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 7rem;
+  width: calc(100% - 2rem);
+  /*background: red;*/
+}
+.column .nuist .text,
+.column .uncp .text,
+.column .brandeis .text,
+.column .kaon .text {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+
+.column .nuist .icon,
+.column .uncp .icon,
+.column .brandeis .icon,
+.column .kaon .icon {
+  position: absolute;
+  margin: 1rem;
+  top: 0;
+  height: 5rem;
+  left: calc(75% - 2.5rem);
+  width: 5rem;
+  background-image: url(../img/nuist.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.page[data-page="education"] .column .uncp .icon {
+  background-image: url(../img/uncp.png);
+}
+.page[data-page="education"] .column .brandeis .icon {
+  background-image: url(../img/brandeis.png);
+}
+.page[data-page="experience"] .column .kaon .icon {
+  background-image: url(../img/kaon.png);
+  top: 1rem;
+  height: 3rem;
+  left: calc(75% - 4.5rem);
+  width: 9rem;
+  cursor: pointer;
+}
+
+
+.column .brandeis .course_description {
+  display: block;
+}
+
+.column .kaon_description {
+  display: block;
+  margin-bottom: 2rem;
+}
+
+.column .brandeis .courses,
+.column .projects {
+  display: block;
+  left: 0;
+  width: 100%;
+}
+
+.courses .course,
+.projects .project {
+  display: block;
+  position: relative;
+  height: 4rem;
+  width: 100%;
+  margin-left: 2rem;
+}
+
+.courses .course:last-child,
+.projects .project:last-child {
+  margin-bottom: 2rem;
+}
+
+.course .text,
+.projects .project .text {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 60%;
+  height: 4rem;
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+
+.course .icon,
+.projects .project .icon {
+  position: absolute;
+  left: calc(80% - 1rem);
+  top: 1rem;
+  height: 2rem;
+  width: 2rem;
+  cursor: pointer;
+  background-image: url(../img/explore.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.course .text span {
+  display: inline-block;
+}
+.course .text div.readmore {
+  font-size: 0.6rem;
+  padding-left: 0.5rem;
+  display: inline-block;
+}
+
+
+
 
 
 /* zhenyu keyframes starts here */
