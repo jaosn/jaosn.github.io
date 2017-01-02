@@ -48,7 +48,30 @@ function main(){
     $(this).addClass("active");
   }).on("mouseleave",function(){
     $(this).removeClass("active");
-  })
+  });
+
+  $(".sidebar").hover(function(){
+    clearTimeout(countTime);
+    console.log("in");
+  },function(){
+    console.log("out");
+    autoClose();
+  });
+
+  $(".sidebutton").on("click",function(){
+    var state = $(this).hasClass("show");
+    console.log(state);
+    if ( state == true) {
+      openMenu();
+    }else{
+      closeMenu();
+    }
+  });
+
+  setTimeout(function(){
+    closeMenu();
+  },3000)
+
 }
 
 window.onload = init;
@@ -62,6 +85,7 @@ function init(){
 var bw;
 var bh;
 var fontSize;
+var countTime;
 function fontsizeResize() {
   bw = $("#body").width();
   bh = $("#body").height();
@@ -116,4 +140,23 @@ function sendEmail(){
   var sub = "Zhenyu's homepage";
   var body = "I saw your profile from your homepage, would linke to talk to you ..";
   window.location.href = "mailto:hanzhenyugg@gmail.com?subject="+encodeURIComponent(sub)+"&body="+encodeURIComponent(body);
+}
+
+function closeMenu() {
+  $(".sidebar").addClass("close");
+  $(".sidebutton").addClass("show");
+  $(".page").addClass("full");
+}
+
+function openMenu() {
+  $(".sidebar").removeClass("close");
+  $(".sidebutton").removeClass("show");
+  $(".page").removeClass("full");
+  autoClose();
+}
+
+function autoClose(){
+  countTime = setTimeout(function(){
+    closeMenu();
+  },4000);
 }

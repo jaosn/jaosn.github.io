@@ -4,7 +4,7 @@ var text = {
   "zhenyu_intro_animation_address":"Right now, I am living at 48 Derby St, MA, 02453",
   "zhenyu_intro_animation_email":"you can contact me at hanzhenyu@brandeis.edu",
   "zhenyu_intro_aniamtion_phone":"or through phone: 617-669-8663",
-  "zhenyu_intro_aniamtion_job_description":"I am opened to any CS related positions and especially like: ",
+  "zhenyu_intro_aniamtion_job_description":"I am opened to any CS related positions, especially like: ",
   "zhenyu_intro_job_1":"ROR - Ruby on Rails developer",
   "zhenyu_intro_job_2":"UI - UI programmer",
   "zhenyu_intro_job_3":"Others - I am willing to retrain",
