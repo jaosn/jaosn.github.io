@@ -26,6 +26,17 @@ function main(){
     }
   });
 
+  $(".course[data-course]").each(function(){
+    var num = $(this).data("course");
+    $(this).find("a").attr("href",courses[num])
+  })
+
+  $(".effect .icon, .course .icon, .project .icon, .step .project_links .icon").mouseenter(function(){
+    $(this).addClass("active");
+  }).mouseleave(function(){
+    $(".effect .icon, .course .icon, .project .icon, .step .project_links .icon").removeClass("active");
+  });
+
   $("[data-button]:not([data-button='projects'])").on("click",function(){
     var page = $(this).data("button");
     console.log(page);
@@ -122,6 +133,14 @@ function navigate(page,step){
 }
 
 var pages = ["intro","education","experience","projects"];
+var courses = ["http://registrar-prod.unet.brandeis.edu/registrar/schedule/classes/2015/Spring/1400/GRAD",
+              "http://registrar-prod.unet.brandeis.edu/registrar/schedule/classes/2015/Fall/1400/GRAD",
+              "http://registrar-prod.unet.brandeis.edu/registrar/schedule/classes/2015/Fall/1400/GRAD",
+              "http://registrar-prod.unet.brandeis.edu/registrar/schedule/classes/2016/Spring/1400/GRAD",
+              "http://registrar-prod.unet.brandeis.edu/registrar/schedule/classes/2016/Spring/1400/GRAD",
+              "http://registrar-prod.unet.brandeis.edu/registrar/schedule/classes/2015/Fall/1400/GRAD"
+]
+
 
 function checkDevice(){
   var is_chrome = navigator.userAgent.indexOf('Chrome') > -1;

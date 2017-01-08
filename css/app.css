@@ -160,7 +160,7 @@ transition: 0.5s opacity ease;*/
 }
 
 .page[data-page="projects"] {
-  background-image: url(../img/bg_office2.jpg);
+  background-image: url(../img/bg_office4.jpg);
 }
 
 #body[data-page="intro"] .page:not([data-page="intro"]),
@@ -762,7 +762,7 @@ transition: 0.5s opacity ease;*/
   top:  16rem;
   left : 0;
   margin: 0.5rem 0.5rem 0 3.5rem;
-  width: calc(100% - 4rem);
+  width: calc(100% - 6rem);
   height: 5rem;
   display: flex;
   align-items: center;
@@ -944,12 +944,177 @@ transition: 0.5s opacity ease;*/
   font-size: 0.6rem;
   padding-left: 0.5rem;
   display: inline-block;
+  color: white;
 }
 
 
+.icon {
+  -webkit-transition: 0.5s all ease-in-out;
+  -moz-transition: 0.5s all ease-in-out;
+  transition: 0.5s all ease-in-out;
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+}
 
+.icon.active {
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  transform: scale(1.2);
+}
 
+.step {
+  position: absolute;
+  left: 0;
+  top:0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  -webkit-transition: 0.5s all ease-in-out;
+  -moz-transition: 0.5s all ease-in-out;
+  transition: 0.5s all ease-in-out;
+  -webkit-transform: translateX(100%);
+  -moz-transform: translateX(100%);
+  transform: translateX(100%);
+  /*color: #5A91BE;*/
+}
 
+#body[data-page="projects"][data-step="1"] .page[data-page="projects"] .step[data-step="1"],
+#body[data-page="projects"][data-step="2"] .page[data-page="projects"] .step[data-step="2"],
+#body[data-page="projects"][data-step="3"] .page[data-page="projects"] .step[data-step="3"],
+#body[data-page="projects"][data-step="4"] .page[data-page="projects"] .step[data-step="4"],
+#body[data-page="projects"][data-step="5"] .page[data-page="projects"] .step[data-step="5"],
+#body[data-page="projects"][data-step="6"] .page[data-page="projects"] .step[data-step="6"],
+#body[data-page="projects"][data-step="7"] .page[data-page="projects"] .step[data-step="7"],
+#body[data-page="projects"][data-step="8"] .page[data-page="projects"] .step[data-step="8"],
+#body[data-page="projects"][data-step="9"] .page[data-page="projects"] .step[data-step="9"],
+#body[data-page="projects"][data-step="10"] .page[data-page="projects"] .step[data-step="10"],
+#body[data-page="projects"][data-step="11"] .page[data-page="projects"] .step[data-step="11"] {
+  opacity: 1;
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  transform: translateX(0);
+}
+
+.step.left {
+  -webkit-transform: translateX(-100%);
+  -moz-transform: translateX(-100%);
+  transform: translateX(-100%);
+}
+
+.step.right {
+  -webkit-transform: translateX(100%);
+  -moz-transform: translateX(100%);
+  transform: translateX(100%);
+}
+
+.step .project_name {
+  display: block;
+  position: relative;
+  left: 2rem;
+  width: calc(100% - 4rem);
+  top: 2rem;
+  height: 5rem;
+}
+
+.project_name .text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  font-size: 3rem;
+  font-family: AppFontB;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step .project_description {
+  position: relative;
+  display: block;
+  left: 2rem;
+  width: calc(100% - 4rem);
+  padding-top: 2rem;
+}
+
+.step .project_links {
+  display: block;
+  position: relative;
+  left: 2rem;
+  width: calc(100% - 4rem);
+  height: 6rem;
+  margin-top: 4rem;
+}
+.project_links .project_code {
+  position: relative;
+  display:inline-block;
+  left: 2rem;
+  width: calc(50% - 2rem);
+  height: 6rem;
+}
+
+.step .icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.project_code .icon {
+  background-image: url(../img/github.png);
+}
+
+.project_links .project_link {
+  position: relative;
+  display:inline-block;
+  left: 0;
+  width: calc(50% - 2rem);
+  height: 6rem;
+}
+
+.project_link .icon {
+  background-image: url(../img/billiards.png);
+}
+
+.step .icon .title {
+  position: absolute;
+  left: 0;
+  top: -3rem;
+  width: 100%;
+  height: 2rem;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.step[data-step="1"] .project_link,
+.step[data-step="2"] .project_link {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.step[data-step="1"] .project_link .icon {
+  top: 25%;
+  height: 50%;
+}
+
+.step[data-step="1"] .project_link .icon {
+  background-image: url(../img/abbott.png);
+}
+
+.step[data-step="2"] .project_link .icon {
+  background-image: url(../img/vce.png);
+}
 /* zhenyu keyframes starts here */
 @-webkit-keyframes shiny1 {
   0% {
